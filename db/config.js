@@ -1,7 +1,7 @@
 import pg from 'pg'
-import 'dotenv/config' // Variables de entorno
+import 'dotenv/config'
 
-const {DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT} = process.env
+const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT } = process.env
 
 const poll = new pg.Pool({
   host: DB_HOST,
@@ -9,7 +9,7 @@ const poll = new pg.Pool({
   password: DB_PASSWORD,
   database: DB_DATABASE,
   port: DB_PORT,
-  allowExitOnIdle: true // Permite cerrar la conexión al finalizar una query
+  allowExitOnIdle: true
 })
 
 poll.query('SELECT NOW()', (err, res) => {
